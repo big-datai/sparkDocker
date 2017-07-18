@@ -36,17 +36,13 @@ RUN wget https://github.com/s3tools/s3cmd/archive/master.zip \
 && yum install net-tools -y \
 && mv log4j.properties /usr/share/spark/conf/ \
 && mv *jar /root/jars \
-&& rm -rf *jar *rpm *tgz
+&& rm -rf *jar *rpm *tgz \
+&& spark-defaults.conf /usr/share/spark/conf/ \
 
 # Oracle install
 #RUN rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
 #RUN rpm -ivh oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
 #:/opt/conda/bin/
-
-#RUN 
-# Uncomment for adding jars, so disk will not explode of multiple jars copied, usually build one uber jar 
-# like in the example
-#ADD spark-defaults.conf /usr/share/spark/conf/
 
 # Enable to use jupyter notebook
 #RUN mkdir /root/.jupyter
