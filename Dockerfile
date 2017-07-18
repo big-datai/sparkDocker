@@ -37,7 +37,7 @@ RUN wget https://github.com/s3tools/s3cmd/archive/master.zip \
 && mv log4j.properties /usr/share/spark/conf/ \
 && mv *jar /root/jars \
 && rm -rf *jar *rpm *tgz \
-&& spark-defaults.conf /usr/share/spark/conf/ \
+&& mv spark-defaults.conf /usr/share/spark/conf/ \
 
 # Oracle install
 #RUN rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
