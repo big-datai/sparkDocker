@@ -13,16 +13,16 @@ RUN mkdir /root/jars/ \
 && export TERM=xterm \
 && yum install -y libaio.x86_64 \
 && yum clean all -y \
- && yum update -y \
- && yum install -y vim \
- && yum install -y bind-utils \
- && yum install -y yum-utils \
- && yum install -y zsh \
- && yum install -y wget \
- && yum install -y bzip2 \
- && yum install -y git \
- && yum install -y java-1.8.0-openjdk-devel.x86_64\
- && yum install -y openssl.x86_64
+&& yum update -y \
+&& yum install -y vim \
+&& yum install -y bind-utils \
+&& yum install -y yum-utils \
+&& yum install -y zsh \
+&& yum install -y wget \
+&& yum install -y bzip2 \
+&& yum install -y git \
+&& yum install -y java-1.8.0-openjdk-devel.x86_64\
+&& yum install -y openssl.x86_64
 
 RUN wget https://github.com/s3tools/s3cmd/archive/master.zip \
 && wget http://central.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar \
