@@ -39,8 +39,10 @@ RUN wget https://github.com/s3tools/s3cmd/archive/master.zip \
 && mv *jar /root/jars \
 && rm -rf *jar *rpm *tgz \
 && touch /usr/share/spark/conf/spark-defaults.conf \
+&& touch /usr/share/spark/conf/spark-env.conf \
 && echo "spark.driver.extraClassPath     $(echo /root/jars/*.jar | tr ' ' ':')" >> /usr/share/spark/conf/spark-defaults.conf \
 && echo "spark.executor.extraClassPath     $(echo /root/jars/*.jar | tr ' ' ':')" >> /usr/share/spark/conf/spark-defaults.conf \
+&& echo "SPARK_WORKER_OPTS=\"-Dspark.worker.cleanup.enabled=true -Dspark.worker.cleanup.interval=18000 -Dspark.worker.cleanup.appDataTtl=21000\"">>/usr/share/spark/conf/spark-env.conf
 
 # Oracle install
 #RUN rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
